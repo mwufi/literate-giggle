@@ -33,8 +33,12 @@ const qq = [
   },
 ];
 
+const Menu: React.FC<{ progress: number }> = ({ progress }) => (
+  <div className='p-4 text-center'>Your progress is {progress * 100}%</div>
+);
+
 export default function HomePage() {
-  const { question, choices } = qq[0];
+  const { question, choices } = qq[1];
   return (
     <Layout>
       <Seo templateTitle='Home' />
@@ -42,6 +46,7 @@ export default function HomePage() {
       <main>
         <section className='bg-white'>
           <div className='layout flex min-h-screen flex-col items-center justify-start text-center'>
+            <Menu progress={0.2} />
             <h1 className='mt-4'>{question}</h1>
             <p className='mt-2 text-sm text-gray-800'>Tap the correct answer</p>
 
