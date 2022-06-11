@@ -4,6 +4,7 @@ import { useState } from 'react';
 import BottomBar from '@/components/BottomBar';
 import Seo from '@/components/Seo';
 
+import { AdjustmentsIcon } from '@heroicons/react/solid';
 /**
  * SVGR Support
  * Caveat: No React Props Type.
@@ -18,6 +19,17 @@ import Layout from '@/components/layout/Layout';
 // Before you begin editing, follow all comments with `STARTERCONF`,
 // to customize the default configuration.
 
+const Quiz = (
+  <>
+    <h1 className='mt-4'>Hey, how was your day?</h1>
+    <p className='mt-2 text-sm text-gray-800'>Tap the correct answer</p>
+    <div className='flex flex-col justify-center items-stretch w-full mt-10 gap-3'>
+      <Button variant='outline'>Great!</Button>
+      <Button variant='outline'>Fine, ok</Button>
+    </div>
+  </>
+);
+
 export default function HomePage() {
   return (
     <Layout>
@@ -25,9 +37,14 @@ export default function HomePage() {
 
       <main>
         <section className='bg-white'>
-          <div className='layout flex min-h-[95vh] flex-col items-center justify-start text-center'>
-            <h1 className='mt-4'>Welcome to your home page</h1>
-            <p className='mt-2 text-sm text-gray-800'>Tap the correct answer</p>
+          <div className='sticky top-0 p-4 flex items-center border-b bg-white'>
+            <div className='font-bold mr-auto'>BobaBuddy</div>
+            <div className='font-bold text-gray-500 h-7 w-7'>
+              <AdjustmentsIcon />
+            </div>
+          </div>
+          <div className='layout flex min-h-[86vh] flex-col items-center justify-start text-center'>
+            
           </div>
           <BottomBar />
         </section>
