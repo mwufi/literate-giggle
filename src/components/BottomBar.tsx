@@ -38,7 +38,7 @@ const BottomBar = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <div className='p-2 flex justify-around bg-gray-100 shadow w-full absolute bottom-0'>
+    <div className='p-2 flex justify-around bg-gray-100 shadow w-full sticky bottom-0'>
       {menu.map(({ icon, text }, i) => (
         <MenuItem
           icon={icon}

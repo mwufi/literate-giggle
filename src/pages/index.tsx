@@ -25,12 +25,11 @@ export default function HomePage() {
 
       <main>
         <section className='bg-white'>
-          <div className='layout flex min-h-screen flex-col items-center justify-start text-center'>
+          <div className='layout flex min-h-[95vh] flex-col items-center justify-start text-center'>
             <h1 className='mt-4'>Welcome to your home page</h1>
             <p className='mt-2 text-sm text-gray-800'>Tap the correct answer</p>
-
-            <BottomBar />
           </div>
+          <BottomBar />
         </section>
       </main>
     </Layout>
