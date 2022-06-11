@@ -8,13 +8,14 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/solid';
 import cx from '@/lib/clsxm';
+import Link from 'next/link';
 
 const MenuItem: React.FC<{
   icon: JSX.Element;
   text: string;
   active?: boolean;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
-}> = ({ icon, text, active = false, onClick}) => (
+}> = ({ icon, text, active = false, onClick }) => (
   <div
     className={cx(
       'flex flex-col text-gray-400 font-light',
@@ -28,9 +29,9 @@ const MenuItem: React.FC<{
 );
 
 const menu = [
-  { icon: <SparklesIcon />, text: 'Learn' },
-  { icon: <NewspaperIcon />, text: 'Explore' },
-  { icon: <GlobeIcon />, text: 'Community' },
+  { icon: <SparklesIcon />, text: 'Learn', href: '/' },
+  { icon: <NewspaperIcon />, text: 'Explore', href: '/quiz' },
+  { icon: <GlobeIcon />, text: 'Community', href: '/blank' },
   { icon: <UserCircleIcon />, text: 'Me' },
 ];
 
@@ -39,13 +40,15 @@ const BottomBar = () => {
 
   return (
     <div className='p-2 flex justify-around bg-gray-100 shadow w-full sticky bottom-0'>
-      {menu.map(({ icon, text }, i) => (
-        <MenuItem
-          icon={icon}
-          text={text}
-          active={i == active}
-          onClick={() => setActive(i)}
-        />
+      {menu.map(({ icon, text, href }, i) => (
+        <Link href={href || ''}>
+          <MenuItem
+            icon={icon}
+            text={text}
+            active={i == active}
+            onClick={() => setActive(i)}
+          />
+        </Link>
       ))}
     </div>
   );

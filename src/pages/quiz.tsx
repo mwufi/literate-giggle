@@ -12,6 +12,7 @@ import Seo from '@/components/Seo';
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
 import Button from '@/components/buttons/Button';
+import BottomBar from '@/components/BottomBar';
 
 // !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
 // Before you begin editing, follow all comments with `STARTERCONF`,
@@ -28,8 +29,7 @@ const qq = [
     choices: ['HTML', 'Javascript'],
   },
   {
-    question:
-      'How many continents are there?',
+    question: 'How many continents are there?',
     choices: ['1', '1 or more', '2 or more', 'more than 7'],
   },
 ];
@@ -59,7 +59,7 @@ export default function HomePage() {
               ))}
             </div>
 
-            <footer className='absolute bottom-2 text-gray-700'>
+            <div className='mt-20 w-full mb-auto'>
               <Button
                 onClick={() =>
                   setCurrentQuestion((currentQuestion + 1) % qq.length)
@@ -67,8 +67,10 @@ export default function HomePage() {
               >
                 Continue
               </Button>
-            </footer>
+            </div>
           </div>
+
+          <BottomBar />
         </section>
       </main>
     </Layout>
