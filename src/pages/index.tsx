@@ -4,7 +4,7 @@ import { useState } from 'react';
 import BottomBar from '@/components/BottomBar';
 import Seo from '@/components/Seo';
 
-import { AdjustmentsIcon } from '@heroicons/react/solid';
+import { AdjustmentsIcon, GlobeIcon } from '@heroicons/react/solid';
 /**
  * SVGR Support
  * Caveat: No React Props Type.
@@ -21,11 +21,42 @@ import Layout from '@/components/layout/Layout';
 
 const Quiz = (
   <>
-    <h1 className='mt-4'>Hey, how was your day?</h1>
+    <h1 className='mt-16'>Hey, how was your day?</h1>
     <p className='mt-2 text-sm text-gray-800'>Tap the correct answer</p>
-    <div className='flex flex-col justify-center items-stretch w-full mt-10 gap-3'>
+    <div className='flex flex-col justify-center items-stretch w-full mt-10 gap-3 mb-10'>
       <Button variant='outline'>Great!</Button>
       <Button variant='outline'>Fine, ok</Button>
+    </div>
+  </>
+);
+
+const items = [
+  { text: 'Discovering HTML and Tags' },
+  { text: 'Structuring text with tags' },
+  { text: 'building buttons' },
+  { text: 'Creating LInks' },
+];
+
+const Section = (
+  <>
+    <div className='text-left w-full text-gray-700'>
+      <h1 className='mt-8'>HTML Basics</h1>
+      <p className='mt-1 text-sm text-gray-500'>
+        Create webpages using HTML tags
+      </p>
+
+      <div className='mt-8 flex gap-1 items-center'>
+        <div className='h-6 w-6 text-green-400'>
+          <GlobeIcon />
+        </div>
+        <h2 className='text-gray-700'>Learn</h2>
+      </div>
+
+      <div className='mt-4 flex flex-col gap-2'>
+          {items.map(({ text }) => (
+            <div className='rounded border border-green-200 p-4 font-medium text-lg bg-green-50 w-full capitalize'>{text}</div>
+          ))}
+        </div>
     </div>
   </>
 );
@@ -44,7 +75,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className='layout flex min-h-[86vh] flex-col items-center justify-start text-center'>
-            
+            {Section}
           </div>
           <BottomBar />
         </section>
