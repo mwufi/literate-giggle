@@ -4,7 +4,7 @@ import { useState } from 'react';
 import BottomBar from '@/components/BottomBar';
 import Seo from '@/components/Seo';
 
-import { AdjustmentsIcon, GlobeIcon } from '@heroicons/react/solid';
+import { AdjustmentsIcon, AcademicCapIcon } from '@heroicons/react/solid';
 /**
  * SVGR Support
  * Caveat: No React Props Type.
@@ -30,11 +30,24 @@ const Quiz = (
   </>
 );
 
-const items = [
-  { text: 'Discovering HTML and Tags' },
-  { text: 'Structuring text with tags' },
-  { text: 'building buttons' },
-  { text: 'Creating LInks' },
+const sections = [
+  {
+    name: 'Learn',
+    items: [
+      { text: 'Discovering HTML and Tags' },
+      { text: 'Structuring text with tags' },
+      { text: 'building buttons' },
+      { text: 'Creating LInks' },
+    ],
+  },
+  {
+    name: 'Explore',
+    items: [
+      { text: 'Your favorite items' },
+      { text: "Let's review!" },
+      { text: 'your mama' },
+    ],
+  },
 ];
 
 const Section = (
@@ -45,18 +58,26 @@ const Section = (
         Create webpages using HTML tags
       </p>
 
-      <div className='mt-8 flex gap-1 items-center'>
-        <div className='h-6 w-6 text-green-400'>
-          <GlobeIcon />
-        </div>
-        <h2 className='text-gray-700'>Learn</h2>
-      </div>
+      {sections.map(({ name, items }) => (
+        <>
+          <div className='mt-8 flex gap-1 items-center'>
+            <div className='h-6 w-6 text-green-400'>
+              <AcademicCapIcon />
+            </div>
+            <h2 className='text-gray-700'>{name}</h2>
+          </div>
 
-      <div className='mt-4 flex flex-col gap-2'>
-          {items.map(({ text }) => (
-            <div className='rounded border border-green-200 p-4 font-medium text-lg bg-green-50 w-full capitalize'>{text}</div>
-          ))}
-        </div>
+          <div className='mt-4 flex flex-col gap-2'>
+            {items.map(({ text }) => (
+              <div className='rounded-lg border-2 shadow border-blue-200 p-4 font-medium text-lg bg-blue-50 text-gray-500 w-full tracking-wide capitalize'>
+                {text}
+              </div>
+            ))}
+          </div>
+        </>
+      ))}
+
+      <div className="mt-8"></div>
     </div>
   </>
 );
@@ -67,7 +88,7 @@ export default function HomePage() {
       <Seo templateTitle='Home' />
 
       <main>
-        <section className='bg-white'>
+        <section className='bg-slate-50'>
           <div className='sticky top-0 p-4 flex items-center border-b bg-white'>
             <div className='font-bold mr-auto'>BobaBuddy</div>
             <div className='font-bold text-gray-500 h-7 w-7'>
